@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
-import { ChartOptions, ChartType } from 'chart.js';
+import { Chart, ChartOptions, ChartType, registerables } from 'chart.js';
 import { WrapperCardComponent } from '../shared-component/wrapper-card.component';
  
 @Component({
@@ -62,4 +62,9 @@ export class AssessmentProgressComponent {
     { data: [0, 100, 0, 0], backgroundColor: '#D6D9DD', label: 'Pending' },
     { data: [0, 100, 0, 0], backgroundColor: '#D6D9DD', label: '' },
   ];
+
+  ngOnInit() {
+    // Register the chart elements
+    Chart.register(...registerables);
+  }
 }

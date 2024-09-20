@@ -7,7 +7,7 @@ import { MatCardModule } from '@angular/material/card';
   standalone: true,
   imports: [CommonModule, MatCardModule],
   templateUrl: './wrapper-card.component.html',
-  styleUrls: ['./wrapper-card.component.scss']
+  styleUrls: ['./wrapper-card.component.css']
 })
 export class WrapperCardComponent implements OnInit {
   constructor() { }

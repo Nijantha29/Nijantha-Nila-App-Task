@@ -20,8 +20,12 @@ export class AttendanceDetailsComponent implements OnInit {
     // Create the chart
     this.createLineChart();
   }
+
  
   createLineChart() {
+    if (this.lineChart) {
+      this.lineChart.destroy();
+    }
     this.lineChart = new Chart('lineChart', {
       type: 'line',
       data: {
