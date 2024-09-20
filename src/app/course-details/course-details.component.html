@@ -1,0 +1,116 @@
+<app-wrapper-card *ngIf="!isMobile">
+    <div *ngFor="let course of courseDetails; let ind = index" class="course-container">
+        <div class="course-content">
+            <div class="heading">Course Code</div>
+            <div class="value">{{course?.code}}</div>
+            <hr class="seperator">
+        </div>
+        <div class="course-content">
+            <div class="heading">Course Name</div>
+            <div class="value">{{course?.name}}</div>
+            <hr class="seperator">
+        </div>
+        <div class="course-content">
+            <div class="heading">Course Type</div>
+            <div class="value">{{course?.type}}</div>
+            <hr class="seperator">
+        </div>
+        <div class="course-content">
+            <div class="heading">Course Period</div>
+            <div class="value">Semester - {{course?.period}}</div>
+            <hr class="seperator">
+        </div>
+        <div class="course-content">
+            <div class="heading">Credits ({{creditsCount[ind]}})</div>
+            <div class="credit-list">
+                <div class="value credit-value" *ngFor="let credit of course?.credits">
+                    <span class="label">{{ credit?.name }}</span>
+                    <span class="dash">-</span>
+                    <span class="number">{{ credit?.credits }}</span>
+                </div>
+            </div>
+            <hr class="seperator">
+        </div>
+        <div class="course-content">
+            <div class="heading">Course Outcomes (COs)</div>
+            <div class="value bg-status appBg-green seperator" *ngFor="let outcome of course?.outComes">{{outcome}}</div>
+            <hr class="seperator">
+        </div>
+        <div class="course-content">
+            <div class="heading">Mapped to this Course</div>
+            <div class="value bg-status appBg-blue seperator" *ngFor="let mappedCourse of course?.mappedCourses">
+                {{mappedCourse}}</div>
+        </div>
+    </div>
+</app-wrapper-card>
+<form [formGroup]="form" *ngIf="isMobile">
+    <mat-accordion class="example-headers-align">
+        <mat-expansion-panel *ngFor="let d of data; index as i"
+            [expanded]="form.value.selected && form.value.selected.id === d.id" (opened)="setStep(d)">
+            <mat-expansion-panel-header>
+                <span class="heading">{{ d.title }}</span>
+            </mat-expansion-panel-header>
+
+            <div *ngFor="let course of courseDetails; let ind = index" class="course-container">
+                <div class="course-content">
+                    <div class="heading">Course Code</div>
+                    <div class="value">{{course?.code}}</div>
+                </div>
+                <div class="course-content">
+                    <div class="heading">Course Name</div>
+                    <div class="value">{{course?.name}}</div>
+                </div>
+                <div class="course-content">
+                    <div class="heading">Course Type</div>
+                    <div class="value">{{course?.type}}</div>
+                </div>
+                <div class="course-content">
+                    <div class="heading">Course Period</div>
+                    <div class="value">Semester - {{course?.period}}</div>
+                </div>
+                <div class="course-content mt-2">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header class="acc-header">
+                                <mat-panel-title>
+                                    <div class="heading">Credits ({{creditsCount[ind]}})</div>
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ng-template matExpansionPanelContent>
+                                <div class="credit-list">
+                                    <div class="value credit-value" *ngFor="let credit of course?.credits">
+                                        <span class="label">{{ credit?.name }}</span>
+                                        <span class="dash">-</span>
+                                        <span class="number">{{ credit?.credits }}</span>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header class="acc-header">
+                                <mat-panel-title>
+                                    <div class="heading">Course Outcomes (COs)</div>
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ng-template matExpansionPanelContent>
+                                <div class="value bg-status appBg-green seperator" *ngFor="let outcome of course?.outComes">
+                                    {{outcome}}</div>
+                            </ng-template>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header class="acc-header">
+                                <mat-panel-title>
+                                    <div class="heading">Mapped to this Course</div>
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ng-template matExpansionPanelContent>
+                                <div class="value bg-status appBg-blue seperator" *ngFor="let mappedCourse of course?.mappedCourses">
+                                    {{mappedCourse}}</div>
+                            </ng-template>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</form>

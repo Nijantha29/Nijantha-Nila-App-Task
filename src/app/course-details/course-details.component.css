@@ -1,0 +1,99 @@
+.heading {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.value {
+    font-size: 16px;
+    font-size: 400;
+}
+
+.course-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0.25rem;
+}
+
+.course-content {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+.seperator {
+    margin: 0.5rem;
+}
+
+.bg-status {
+    border-radius: 4px;
+    min-height: fit-content;
+    min-width: 32px;
+    font-size: 0.875rem;
+    display: inline-flex;
+    padding: 4px 10px;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Ensure it grows with content */
+.bg-status > span {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.appBg-green {
+    background: #96c38b;
+    font-weight: 500;
+}
+
+.appBg-blue {
+    background-color: rgb(73, 98, 172);
+    font-weight: 500;
+    color: white;
+}
+
+.credit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.credit-value {
+    display: flex;
+    align-items: center;
+    max-width: 250px;
+}
+
+.label {
+    flex: 0.5;
+    min-width: max-content;
+}
+
+.dash {
+    width: 10px;
+    text-align: center;
+}
+
+.number {
+    width: 30px;
+    font-weight: 600;
+    text-align: right;
+}
+
+.acc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@media (max-width: 768px) {
+    .heading {
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .value {
+        font-size: 12px;
+        font-size: 400;
+    }
+}
